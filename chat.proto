@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package chat;
+
+message ChatMessage {
+    string sender = 1;      // 발신자
+    string message = 2;     // 메시지 내용
+    string Timestamp = 3;   // 메시지 전송 시간
+}
+
+service ChatService {
+    rpc SendMessage(stream ChatMessage) returns (stream ChatMessage);
+}
